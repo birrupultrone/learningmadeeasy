@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Make Learning Easy | MLE</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: background 0.3s ease, padding 0.3s ease;
+    }
+
+    header.scrolled {
+      background: #ffffff;
+      padding: 15px 60px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #5a189a;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #a78bfa;
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: #5a189a;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    nav.active {
+      display: block;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav.active ul {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 150px 60px 60px;
+      gap: 40px;
+      background: #ffffff;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #5a189a;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #a78bfa;
+      color: #fff;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .cta-btn:hover {
+      background-color: #7c3aed;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      max-width: 90%;       /* slightly bigger image */
+      padding: 40px;        /* gentle white spacing */
+      background: #fff;     /* soft white border effect */
+      border-radius: 0;     /* no rounded corners */
+      box-shadow: none;     /* integrated look */
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Sections */
+    section {
+      padding: 120px 60px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #5a189a;
+      margin-bottom: 60px;
+    }
+
+    /* Mission */
+    #mission {
+      background: #f7f7f9;
+      text-align: center;
+    }
+
+    #mission p {
+      font-size: 1.2rem;
+      color: #444;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.7;
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    /* Services */
+    #services {
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .services-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background: #f9f9ff;
+      border: 2px solid #e6e6e6;
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(167,139,250,0.3);
+      border-color: #a78bfa;
+    }
+
+    .service-card h3 {
+      color: #7c3aed;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .service-card p {
+      color: #555;
+    }
+
+    /* Creative Flow */
+    #creativeflow {
+      background: #f7f7f9;
+      text-align: center;
+    }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      justify-items: center;
+      align-items: start;
+    }
+
+    .flow-step {
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .flow-step:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(167,139,250,0.25);
+    }
+
+    .flow-step img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    .flow-step h3 {
+      color: #5a189a;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .flow-step p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Contact */
+    #contact {
+      background: #ffffff;
+      text-align: center;
+    }
+
+    #contact .contact-info {
+      background: #f7f7f9;
+      display: inline-block;
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    #contact p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    #contact a {
+      color: #7c3aed;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      color: #555;
+      border-top: 1px solid #eee;
+      background-color: #fff;
+    }
+
+    /* Responsive */
+    @media(max-width:900px){
+      header { padding: 15px 30px; }
+      .menu-toggle { display: flex; }
+      nav { display: none; }
+      .hero { flex-direction: column; text-align: center; padding: 120px 20px 60px; }
+      .hero-image { margin-top: 40px; }
+      .hero-image img { max-width: 85%; padding: 30px; }
+      section { padding: 100px 20px; }
+      .flow-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <div class="logo">LME</div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div><div></div><div></div>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#creativeflow">Creative Flow</a></li>
+		<li><a href="recommendations.html">Recommendations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>We Make Learning Easy</h1>
+      <p>We create e-learning experiences that are engaging, intuitive, and grounded in research — transforming the way people learn with clarity and joy.</p>
+      <a href="#services" class="cta-btn">Explore Services</a>
+    </div>
+    <div class="hero-image">
+      <img src="./pictures/ILLUSTRATION.svg" alt="E-Learning">
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="mission">
+    <h2>Our Mission</h2>
+    <p>
+      At Make Learning Easy (MLE), we believe learning should inspire, not frustrate. 
+      Our mission is to make learning simple, engaging, and enjoyable so every learner 
+      stays motivated and confident. By combining expertise in educational technology 
+      and user experience design, we create smart, accessible solutions that turn 
+      complex learning into simple, enjoyable experiences.
+    </p>
+  </section>
+
+<!-- Services -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services-cards">
+    <div class="service-card">
+      <h3>E-Learning Consultation</h3>
+      <p>Expert guidance to create effective online learning strategies that engage and inspire your learners.</p>
+    </div>
+    <div class="service-card">
+      <h3>E-Learning Creation</h3>
+      <p>End-to-end e-learning content development, from instructional design to interactive multimedia courses.</p>
+    </div>
+  </div>
+
+  <!-- Call to Action Button -->
+  <div style="margin-top:60px;">
+    <a href="#contact" class="cta-btn">Contact Us for More Information</a>
+  </div>
+</section>
+
+  <!-- Creative Flow -->
+  <section id="creativeflow">
+    <h2>Our E-Learning Development Process</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Consultation">
+        <h3>1. Consultation</h3>
+        <p>We start by understanding your vision, audience, and learning objectives to craft the perfect strategy.</p>
+      </div>
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" alt="Review Content">
+        <h3>2. Review Content</h3>
+        <p>We analyze and structure your materials to ensure clear flow and alignment with learning outcomes.</p>
+      </div>
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Prototype">
+        <h3>3. E-Learning Prototype</h3>
+        <p>We design a sleek, interactive prototype so you can visualize the learning experience before full development.</p>
+      </div>
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="Development">
+        <h3>4. Development</h3>
+        <p>Our team builds and integrates the e-learning content, adding multimedia and interactivity for engagement.</p>
+      </div>
+      <div class="flow-step">
+        <img src="https://cdn-icons-png.flaticon.com/512/3565/3565418.png" alt="Revision">
+        <h3>5. Revision</h3>
+        <p>We refine and finalize based on your feedback, ensuring the final product exceeds expectations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:birru.pultrone@gmail.com">birru.pultrone@gmail.com</a></p>
+      <p><strong>Address:</strong> Untermatt 8, 8902 Urdorf, Switzerland</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 MLE. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if(window.scrollY > 50){
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
