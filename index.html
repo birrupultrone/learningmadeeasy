@@ -301,22 +301,22 @@
       color: #555;
       line-height: 1.5;
     }
-	
-	/* Responsive YouTube Video */
+	  
 	#process-video {
 	  text-align: center;
 	  margin-top: 40px;
 	}
-
+	
 	.video-container {
 	  position: relative;
-	  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	  width: 100%;
+	  max-width: 800px; /* Max width for desktop */
+	  margin: auto;
+	  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
 	  height: 0;
 	  overflow: hidden;
-	  max-width: 800px; /* nice mid-size */
-	  margin: auto;
 	}
-
+	
 	.video-container iframe {
 	  position: absolute;
 	  top: 0;
@@ -325,6 +325,12 @@
 	  height: 100%;
 	  border: 0;
 	}
+	
+		/* Responsive YouTube Video */
+		#process-video {
+		  text-align: center;
+		  margin-top: 40px;
+		}
 
 
     /* Contact */
@@ -486,11 +492,16 @@
     </div>
   </section>
   
-  <!-- Video Showcase -->
-	<section id="process-video">
+  <section id="process-video">
 	  <h2>See Our E-Learning Process in Action</h2>
 	  <div class="video-container">
-		<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vc3RjJfYbTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	    <iframe 
+	      src="https://www.youtube-nocookie.com/embed/vc3RjJfYbTc?rel=0&vq=hd1080" 
+	      title="E-Learning Development Process" 
+	      frameborder="0" 
+	      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+	      allowfullscreen>
+	    </iframe>
 	  </div>
 	</section>
 
@@ -528,5 +539,6 @@
   </script>
 </body>
 </html>
+
 
 
