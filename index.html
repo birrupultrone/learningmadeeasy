@@ -25,28 +25,32 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
+      padding: 6px 65px;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 100;
       background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       transition: background 0.3s ease, padding 0.3s ease;
     }
 
     header.scrolled {
       background: #ffffff;
-      padding: 15px 60px;
+      padding: 6px 65px;
       box-shadow: 0 5px 25px rgba(0,0,0,0.1);
     }
 
     .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #000;
-    }
+	  display: flex;
+	  align-items: center;
+	}
+
+	.logo img {
+	  height: 60px;          /* adjust size as needed */
+	  width: auto;
+	  object-fit: contain;
+	}
 
     nav ul {
       list-style: none;
@@ -56,7 +60,7 @@
 
     nav a {
       text-decoration: none;
-      color: #5a189a;
+      color: #222222;
       font-weight: 500;
       transition: color 0.3s ease;
     }
@@ -117,16 +121,36 @@
     .hero-text h1 {
       font-size: 3rem;
       font-weight: 800;
-      color: #5a189a;
       line-height: 1.1;
       margin-bottom: 20px;
     }
 
     .hero-text p {
       font-size: 1.2rem;
-      color: #555;
       margin-bottom: 30px;
     }
+	
+	/* Hero headline styling */
+	.hero-title {
+	  font-size: 2.6rem;
+	  font-weight: 300; /* slimmer overall */
+	  line-height: 1.15;
+	  margin-bottom: 20px;
+	}
+
+	/* Bigger emphasis words */
+	.hero-title .emphasis {
+	  font-size: 3.2rem;
+	  font-weight: 500;
+	  background: linear-gradient(90deg, #000 0%, #333 100%);
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+	}
+
+	/* Prevent line breaks */
+	.hero-title .nowrap {
+	  white-space: nowrap;
+	}
 
     .cta-btn {
       display: inline-block;
@@ -277,6 +301,31 @@
       color: #555;
       line-height: 1.5;
     }
+	
+	/* Responsive YouTube Video */
+	#process-video {
+	  text-align: center;
+	  margin-top: 40px;
+	}
+
+	.video-container {
+	  position: relative;
+	  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	  height: 0;
+	  overflow: hidden;
+	  max-width: 800px; /* nice mid-size */
+	  margin: auto;
+	}
+
+	.video-container iframe {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  border: 0;
+	}
+
 
     /* Contact */
     #contact {
@@ -328,13 +377,20 @@
       .hero-image img { max-width: 85%; padding: 30px; }
       section { padding: 100px 20px; }
       .flow-steps { grid-template-columns: 1fr; }
+	  .hero-title {
+		font-size: 2.2rem;
+	  }
+
+	  .hero-title .emphasis {
+		font-size: 2.7rem;
+	  }
     }
   </style>
 </head>
 <body>
 
   <header id="header">
-    <div class="logo">LME</div>
+    <div class="logo"><img src="./pictures/logo/logo_long.jpg" alt="Make Learning Easy Logo"></div>
     <div class="menu-toggle" id="menu-toggle">
       <div></div><div></div><div></div>
     </div>
@@ -344,7 +400,7 @@
         <li><a href="#mission">Mission</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#creativeflow">Creative Flow</a></li>
-		<li><a href="recommendations.html">Recommendations</a></li>
+		<!-- <li><a href="recommendations.html">Recommendations</a></li> -->
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -353,12 +409,16 @@
   <!-- Hero -->
   <section class="hero" id="home">
     <div class="hero-text">
-      <h1>We Make Learning Easy</h1>
+      <h1 class="hero-title">
+		  <span class="emphasis">Creating</span>
+		  creative, research-based
+		  <span class="emphasis nowrap">E-learnings</span>
+		</h1>
       <p>We create e-learning experiences that are engaging, intuitive, and grounded in research — transforming the way people learn with clarity and joy.</p>
       <a href="#services" class="cta-btn">Explore Services</a>
     </div>
     <div class="hero-image">
-      <img src="ILLUSTRATION.svg" alt="E-Learning">
+      <img src="./pictures/ILLUSTRATION.svg" alt="E-Learning">
     </div>
   </section>
 
@@ -425,6 +485,15 @@
       </div>
     </div>
   </section>
+  
+  <!-- Video Showcase -->
+	<section id="process-video">
+	  <h2>See Our E-Learning Process in Action</h2>
+	  <div class="video-container">
+		<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vc3RjJfYbTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	  </div>
+	</section>
+
 
   <!-- Contact -->
   <section id="contact">
@@ -459,4 +528,3 @@
   </script>
 </body>
 </html>
-
