@@ -60,7 +60,7 @@
     }
 
     nav a:hover {
-      color: #a78bfa;
+      color: #7c3aed;
     }
 
     /* Mobile Menu */
@@ -126,29 +126,28 @@
 	
 	/* Hero headline styling */
 	.hero-title {
-	  font-size: 2.6rem;
-	  font-weight: 300; /* slimmer overall */
+	  font-size: clamp(2.2rem, 4vw, 2.6rem);
+	  font-weight: 500;
 	  line-height: 1.15;
 	  margin-bottom: 20px;
+	  color: #000;
 	}
 
-	/* Bigger emphasis words */
 	.hero-title .emphasis {
-	  font-size: 3.2rem;
-	  font-weight: 500;
-	  background: linear-gradient(90deg, #000 0%, #333 100%);
-	  -webkit-background-clip: text;
-	  -webkit-text-fill-color: transparent;
+	  font-size: clamp(2.6rem, 5vw, 3.2rem);
+	  font-weight: 600;
+	  color: #000;
 	}
 
-	/* Prevent line breaks */
 	.hero-title .nowrap {
 	  white-space: nowrap;
 	}
 
+
     .cta-btn {
       display: inline-block;
-      background-color: #a78bfa;
+      /* background-color: #a78bfa;*/
+	  background-color: #5a189a;
       color: #fff;
       padding: 15px 35px;
       border-radius: 50px;
@@ -194,6 +193,25 @@
       color: #5a189a;
       margin-bottom: 60px;
     }
+	
+	.section-title {
+	  font-size: 2.5rem; /* same size as now */
+	  font-weight: 500;
+	  line-height: 1.2;
+	  color: #000;
+	  text-align: center;
+	}
+
+	.section-title .emphasis {
+	  font-weight: 600;
+	  color: #000;
+	}
+
+	.section-title .secondary {
+	  font-weight: 400;
+	  color: #000;
+	}
+
 
     /* Mission */
     #mission {
@@ -215,7 +233,7 @@
 
     /* Services */
     #services {
-      background: #ffffff;
+	  background: #f7f7f9;
       text-align: center;
     }
 
@@ -243,7 +261,7 @@
     }
 
     .service-card h3 {
-      color: #7c3aed;
+      color: #222222;
       margin-bottom: 15px;
       font-size: 1.4rem;
     }
@@ -254,7 +272,7 @@
 
     /* Creative Flow */
     #creativeflow {
-      background: #f7f7f9;
+      background: #ffffff;
       text-align: center;
     }
 
@@ -285,7 +303,7 @@
     }
 
     .flow-step h3 {
-      color: #5a189a;
+      color: #222222;
       margin-bottom: 10px;
       font-size: 1.3rem;
     }
@@ -326,6 +344,42 @@
 		  margin-top: 40px;
 		}
 
+	/* About Section */
+	#about {
+	  background: #f7f7f9;
+	}
+
+	.about-wrapper {
+	  display: flex;
+	  align-items: center;
+	  gap: 60px;
+	  max-width: 1000px;
+	  margin: auto;
+	}
+
+	.about-photo {
+	  flex: 0 0 220px;
+	  text-align: center;
+	}
+
+	.about-photo img {
+	  width: 220px;
+	  height: 220px;
+	  object-fit: cover;
+	  border-radius: 50%;
+	  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	}
+
+	.about-text {
+	  flex: 1;
+	}
+
+	.about-text p {
+	  font-size: 1.1rem;
+	  line-height: 1.7;
+	  color: #444;
+	  margin-bottom: 20px;
+	}
 
     /* Contact */
     #contact {
@@ -377,12 +431,13 @@
       .hero-image img { max-width: 85%; padding: 30px; }
       section { padding: 100px 20px; }
       .flow-steps { grid-template-columns: 1fr; }
-	  .hero-title {
-		font-size: 2.2rem;
+	  .about-wrapper {
+		flex-direction: column;
+		text-align: center;
 	  }
-
-	  .hero-title .emphasis {
-		font-size: 2.7rem;
+	  .about-photo img {
+		width: 180px;
+		height: 180px;
 	  }
     }
   </style>
@@ -397,10 +452,10 @@
     <nav id="nav">
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#mission">Mission</a></li>
+        <!-- <li><a href="#mission">Mission</a></li> -->
         <li><a href="#services">Services</a></li>
-        <li><a href="#creativeflow">Creative Flow</a></li>
-		<!-- <li><a href="recommendations.html">Recommendations</a></li> -->
+        <li><a href="#creativeflow">Process</a></li>
+		<li><a href="#about">About</a></li> 
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -422,21 +477,28 @@
     </div>
   </section>
 
-  <!-- Mission -->
-  <section id="mission">
-    <h2>Our Mission</h2>
-    <p>
-      At Make Learning Easy (MLE), we believe learning should inspire, not frustrate. 
-      Our mission is to make learning simple, engaging, and enjoyable so every learner 
-      stays motivated and confident. By combining expertise in educational technology 
-      and user experience design, we create smart, accessible solutions that turn 
-      complex learning into simple, enjoyable experiences.
-    </p>
-  </section>
+  <!-- <!-- Mission --> -->
+  <!-- <section id="mission"> -->
+    <!-- <h2 class="section-title"> -->
+	  <!-- <span class="secondary">Our</span> -->
+	  <!-- <span class="emphasis">Mission</span> -->
+	<!-- </h2> -->
+    <!-- <p> -->
+      <!-- At Make Learning Easy (MLE), we believe learning should inspire, not frustrate.  -->
+      <!-- Our mission is to make learning simple, engaging, and enjoyable so every learner  -->
+      <!-- stays motivated and confident. By combining expertise in educational technology  -->
+      <!-- and user experience design, we create smart, accessible solutions that turn  -->
+      <!-- complex learning into simple, enjoyable experiences. -->
+    <!-- </p> -->
+  <!-- </section> -->
 
 <!-- Services -->
 <section id="services">
-  <h2>Our Services</h2>
+  <h2 class="section-title">
+	  <span class="secondary">Our</span>
+	  <span class="emphasis">Services</span>
+	</h2>
+
   <div class="services-cards">
     <div class="service-card">
       <h3>E-Learning Consultation</h3>
@@ -456,7 +518,10 @@
 
   <!-- Creative Flow -->
   <section id="creativeflow">
-    <h2>Our E-Learning Development Process</h2>
+	<h2 class="section-title">
+		<span class="secondary">Our</span>
+		<span class="emphasis">E-Learning Development Process</span>
+	</h2>
     <div class="flow-steps">
       <div class="flow-step">
         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Consultation">
@@ -487,7 +552,10 @@
   </section>
   
   <section id="process-video">
-	  <h2>See Our E-Learning Process in Action</h2>
+	<h2 class="section-title">
+	  <span class="secondary">See Our E-Learning Process</span>
+	  <span class="emphasis">in Action</span>
+	</h2>
 	  <div class="video-container">
 	    <iframe 
 	      src="https://www.youtube-nocookie.com/embed/vc3RjJfYbTc?rel=0&vq=hd1080" 
@@ -498,11 +566,53 @@
 	    </iframe>
 	  </div>
 	</section>
+	
+	<!-- About -->
+	<section id="about">
+		<h2 class="section-title">
+		  <span class="emphasis">About</span>
+		  <span class="secondary">Mastery With Ease</span>
+		</h2>
+
+	  <div class="about-wrapper">
+		<div class="about-photo">
+		  <img src="pictures/self_photo.jpg" alt="Founder of Make Learning Easy">
+		</div>
+
+		<div class="about-text">
+		  <p>
+			I started Mastery With Ease with a clear mission: to transform learning experiences
+			from something frustrating into something genuinely engaging and appealing.
+		  </p>
+
+		  <p>
+			I combine art, storytelling, and learning science to create e-learning experiences
+			that feel inviting rather than overwhelming.
+		  </p>
+
+		  <p>
+			In practice, this means using visuals, animations, video, sound, and narrative to
+			support understanding and memory. These creative touches bring something truly different to learning.
+			With today’s technology, we can stimulate the senses in ways that were not possible
+			in traditional classroom experiences.
+		  </p>
+
+		  <p>
+			My goal is simple: to make learning spark curiosity — so people want to click
+			further, explore more, and engage deeply — just like reading a great novel or
+			watching a compelling film.
+		  </p>
+		</div>
+	  </div>
+	</section>
 
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Contact Us</h2>
+	<h2 class="section-title">
+	  <span class="emphasis">Contact</span>
+	  <span class="secondary">Us</span>
+	</h2>
     <div class="contact-info">
       <p><strong>Email:</strong> <a href="mailto:birru.pultrone@gmail.com">birru.pultrone@gmail.com</a></p>
       <p><strong>Address:</strong> Untermatt 8, 8902 Urdorf, Switzerland</p>
@@ -510,7 +620,7 @@
   </section>
 
   <footer>
-    &copy; 2025 MLE. All Rights Reserved.
+    &copy; 2025 MWE. All Rights Reserved.
   </footer>
 
   <script>
@@ -533,7 +643,5 @@
   </script>
 </body>
 </html>
-
-
 
 
